@@ -15,7 +15,7 @@
 
   <name>Hiero Enterprise ABI Parser</name>
   <description>Library that provides an API to parse ABI data</description>
-  <url>https://github.com/OpenElements/hiero-enterprise-java</url>
+  <url>https://github.com/OpenElements/solidity-enterprise-java</url>
 
   <dependencies>
     <dependency>

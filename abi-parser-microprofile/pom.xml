@@ -15,7 +15,7 @@
 
   <name>ABI Parser support for Microprofile</name>
   <description>Library that provides an implementation of the ABI parser for Microprofile</description>
-  <url>https://github.com/OpenElements/hiero-enterprise-java</url>
+  <url>https://github.com/OpenElements/solidity-enterprise-java</url>
 
   <dependencies>
     <dependency>
