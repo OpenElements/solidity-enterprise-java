@@ -9,8 +9,8 @@
   <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>Solidity Enterprise</name>
-  <description>Java Library to work with Solidity</description>
+  <name>Solidity Enterprise for Java</name>
+  <description>Java Library to work with Solidity and Smart Contracts</description>
   <url>https://github.com/OpenElements/solidity-enterprise-java</url>
   <licenses>
     <license>
@@ -199,7 +199,6 @@
     <module>abi-parser-simple</module>
     <module>abi-parser-microprofile</module>
     <module>abi-parser-spring</module>
-
   </modules>
 
   <build>
