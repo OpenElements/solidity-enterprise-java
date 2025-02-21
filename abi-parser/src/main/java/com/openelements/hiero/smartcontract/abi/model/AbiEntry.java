@@ -2,7 +2,7 @@ package com.openelements.hiero.smartcontract.abi.model;
 
 import java.util.List;
 
-public interface AbiEntry {
+public sealed interface AbiEntry permits AbiEvent, AbiError, AbiFunction {
 
     AbiEntryType type();
 

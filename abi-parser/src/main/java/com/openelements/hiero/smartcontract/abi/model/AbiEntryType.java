@@ -4,6 +4,7 @@ import java.util.stream.Stream;
 
 public enum AbiEntryType {
     FUNCTION,
+    ERROR,
     EVENT,
     CONSTRUCTOR,
     RECEIVE,
@@ -13,6 +14,7 @@ public enum AbiEntryType {
         return switch (name) {
             case "function" -> FUNCTION;
             case "event" -> EVENT;
+            case "error" -> ERROR;
             case "constructor" -> CONSTRUCTOR;
             case "receive" -> RECEIVE;
             case "fallback" -> FALLBACK;
