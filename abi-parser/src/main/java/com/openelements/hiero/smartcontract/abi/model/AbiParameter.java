@@ -18,4 +18,8 @@ public record AbiParameter(@NonNull String name, @NonNull AbiParameterType type,
         }
     }
 
+    public String getCanonicalType() {
+        return type.getCanonicalType();
+    }
+
 }

@@ -18,4 +18,22 @@ public enum AbiParameterType {
             default -> throw new IllegalArgumentException("Unknown value type: " + name);
         };
     }
+
+    public String getCanonicalType() {
+        return switch (this) {
+            case ADDRESS -> "address";
+            case STRING -> "string";
+            case BYTE32 -> "bytes32";
+            case BOOL -> "bool";
+            case UINT256 -> "uint256";
+            case TUPLE -> "tuple";
+        };
+    }
+
+    public boolean isDynamic() {
+        return switch (this) {
+            case STRING, BYTE32 -> true;
+            default -> false;
+        };
+    }
 }
