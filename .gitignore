@@ -2,5 +2,6 @@
 /abi-parser-simple/target/
 /abi-parser-spring/target/
 /abi-parser-microprofile/target/
+/target/
 .idea/
 .env
