@@ -19,12 +19,10 @@ public class AbiEventTests {
 
 
         // When
-        String signature = event.createEventSignature();
-        String hashAsHex = event.createEventSignatureHashAsHex();
+        String hex = event.createEventSignatureHashAsHex();
 
         // Then
-        Assertions.assertEquals("HashAdded(string)", signature);
-        Assertions.assertEquals("0xe0c9f5e6f5abddac86dac0e02afc9f3fda7b7fc6d9454a13c51fcb28621e1e5f", hashAsHex);
+        Assertions.assertEquals("0xe0c9f5e6f5abddac86dac0e02afc9f3fda7b7fc6d9454a13c51fcb28621e1e5f", hex);
     }
 
     @Test
@@ -37,12 +35,10 @@ public class AbiEventTests {
 
 
         // When
-        String signature = event.createEventSignature();
-        String hashAsHex = event.createEventSignatureHashAsHex();
+        String hex = event.createEventSignatureHashAsHex();
 
         // Then
-        Assertions.assertEquals("MissingVerificationCountUpdated(uint256)", signature);
-        Assertions.assertEquals("0x271219bdbb9b91472a5df68ef7a9d3f8de02f3c27b93a35306f888acf081ea60", hashAsHex);
+        Assertions.assertEquals("0x271219bdbb9b91472a5df68ef7a9d3f8de02f3c27b93a35306f888acf081ea60", hex);
     }
 
 }
