@@ -19,7 +19,16 @@ public record AbiEvent(@NonNull String name, @NonNull List<AbiParameter> inputs,
         return AbiEntryType.EVENT;
     }
 
-    @NonNull
+    public List<AbiParameter> getIndexedInputParameters() {
+        return inputs.stream().filter(AbiParameter::indexed).toList();
+    }
+
+    public List<AbiParameter> getNonIndexedInputParameters() {
+        return inputs.stream().filter(parameter -> !parameter.indexed()).toList();
+    }
+
+
+        @NonNull
     public String createEventSignature() {
         final List<String> canonicalParameterTypes = inputs.stream().map(AbiParameter::getCanonicalType).toList();
         return name + "(" + String.join(",", canonicalParameterTypes) + ")";
