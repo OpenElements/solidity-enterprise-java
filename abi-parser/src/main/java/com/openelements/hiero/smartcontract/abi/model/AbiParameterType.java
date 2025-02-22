@@ -39,4 +39,15 @@ public enum AbiParameterType {
             default -> false;
         };
     }
+
+    public int getFixedSize() {
+        return switch (this) {
+            case ADDRESS -> 20;
+            case BOOL -> 1;
+            case UINT256 -> 32;
+            case UINT -> 32;
+            case BYTE32 -> 32;
+            default -> throw new IllegalStateException("No fixed size for type: " + this);
+        };
+    }
 }
