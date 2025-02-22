@@ -1,6 +1,7 @@
 package com.openelements.hiero.smartcontract.abi.model;
 
 import com.openelements.hiero.smartcontract.abi.util.HexConverter;
+import com.openelements.hiero.smartcontract.abi.util.KeccakUtil;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
@@ -27,19 +28,16 @@ public record AbiEvent(@NonNull String name, @NonNull List<AbiParameter> inputs,
         return inputs.stream().filter(parameter -> !parameter.indexed()).toList();
     }
 
-
-        @NonNull
-    public String createEventSignature() {
+    @NonNull
+    private String createEventSignature() {
         final List<String> canonicalParameterTypes = inputs.stream().map(AbiParameter::getCanonicalType).toList();
         return name + "(" + String.join(",", canonicalParameterTypes) + ")";
     }
 
     @NonNull
-    public byte[] createEventSignatureHash() {
+    private byte[] createEventSignatureHash() {
         final String eventSignature = createEventSignature();
-        Keccak.DigestKeccak kecc = new Keccak.Digest256();
-        kecc.update(eventSignature.getBytes(StandardCharsets.UTF_8));
-        return kecc.digest();
+        return KeccakUtil.keccak256(eventSignature.getBytes(StandardCharsets.UTF_8));
     }
 
     @NonNull
