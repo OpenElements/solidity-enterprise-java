@@ -6,6 +6,7 @@ public enum AbiParameterType {
     BYTE32,
     BOOL,
     UINT256,
+    UINT,
     TUPLE;
 
     public static AbiParameterType of(final String name) {
@@ -15,6 +16,7 @@ public enum AbiParameterType {
             case "bytes32" -> BYTE32;
             case "bool" -> BOOL;
             case "uint256" -> UINT256;
+            case "uint" -> UINT;
             default -> throw new IllegalArgumentException("Unknown value type: " + name);
         };
     }
@@ -27,6 +29,7 @@ public enum AbiParameterType {
             case BOOL -> "bool";
             case UINT256 -> "uint256";
             case TUPLE -> "tuple";
+            case UINT -> "uint256";
         };
     }
 
