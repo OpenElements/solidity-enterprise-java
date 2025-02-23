@@ -11,7 +11,7 @@ public class HexConverter {
     @NonNull
     public static String bytesToHex(@NonNull final byte[] bytes) {
         //see https://stackoverflow.com/questions/9655181/java-convert-a-byte-array-to-a-hex-string
-        Objects.requireNonNull(bytes, "bytes");
+        Objects.requireNonNull(bytes, "bytes must not be null");
         final byte[] hexChars = new byte[bytes.length * 2];
         for (int j = 0; j < bytes.length; j++) {
             int v = bytes[j] & 0xFF;
@@ -21,7 +21,9 @@ public class HexConverter {
         return new String(hexChars, StandardCharsets.UTF_8).toLowerCase();
     }
 
+    @NonNull
     public static byte[] hexToBytes(@NonNull final String hex) {
+        Objects.requireNonNull(hex, "hex must not be null");
         int len = hex.length();
         byte[] data = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {

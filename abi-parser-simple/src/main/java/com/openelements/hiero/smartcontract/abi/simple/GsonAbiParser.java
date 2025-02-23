@@ -18,7 +18,6 @@ public class GsonAbiParser implements AbiParser {
         this.gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new AbiTypeAdapterFactory())
                 .create();
-
     }
 
     public @NonNull AbiModel parse(@NonNull Reader abiReader) throws AbiParserException {

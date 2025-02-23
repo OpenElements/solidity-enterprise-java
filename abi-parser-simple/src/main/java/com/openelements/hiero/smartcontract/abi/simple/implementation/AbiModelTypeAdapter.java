@@ -18,7 +18,7 @@ public class AbiModelTypeAdapter extends BasicTypeAdapter<AbiModel> {
     }
 
     @Override
-    public AbiModel read(JsonReader in) throws IOException {
+    public AbiModel read(@NonNull final JsonReader in) throws IOException {
         JsonArray array = readArray(in);
         final List<AbiEntry> entries = new ArrayList<>();
         array.forEach(jsonElement -> {
