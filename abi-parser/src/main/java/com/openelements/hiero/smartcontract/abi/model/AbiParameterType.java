@@ -17,6 +17,7 @@ public enum AbiParameterType {
             case "bool" -> BOOL;
             case "uint256" -> UINT256;
             case "uint" -> UINT;
+            case "tuple" -> TUPLE;
             default -> throw new IllegalArgumentException("Unknown value type: " + name);
         };
     }

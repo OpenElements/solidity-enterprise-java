@@ -5,7 +5,6 @@ import com.openelements.hiero.smartcontract.abi.util.KeccakUtil;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
-import org.bouncycastle.jcajce.provider.digest.Keccak;
 import org.jspecify.annotations.NonNull;
 
 public record AbiEvent(@NonNull String name, @NonNull List<AbiParameter> inputs, boolean anonymous) implements AbiEntry{
@@ -20,10 +19,12 @@ public record AbiEvent(@NonNull String name, @NonNull List<AbiParameter> inputs,
         return AbiEntryType.EVENT;
     }
 
+    @NonNull
     public List<AbiParameter> getIndexedInputParameters() {
         return inputs.stream().filter(AbiParameter::indexed).toList();
     }
 
+    @NonNull
     public List<AbiParameter> getNonIndexedInputParameters() {
         return inputs.stream().filter(parameter -> !parameter.indexed()).toList();
     }
