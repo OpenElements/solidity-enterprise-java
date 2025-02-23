@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.jspecify.annotations.NonNull;
 
 public class AbiParameterTypeAdapter extends BasicTypeAdapter<AbiParameter> {
 
@@ -17,7 +18,7 @@ public class AbiParameterTypeAdapter extends BasicTypeAdapter<AbiParameter> {
     }
 
     @Override
-    public AbiParameter read(JsonReader in) throws IOException {
+    public AbiParameter read(@NonNull final JsonReader in) throws IOException {
         final JsonObject parameterObject = readObject(in);
 
         final String name = getStringValue(parameterObject, "name")

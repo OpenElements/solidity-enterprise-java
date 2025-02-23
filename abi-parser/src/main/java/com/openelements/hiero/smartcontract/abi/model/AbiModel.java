@@ -10,19 +10,24 @@ public record AbiModel(@NonNull List<AbiEntry> entries) {
         Objects.requireNonNull(entries, "entries");
     }
 
+    @NonNull
     public List<AbiFunction> getFunctions() {
         return getEntriesOfType(AbiFunction.class);
     }
 
+    @NonNull
     public List<AbiEvent> getEvents() {
         return getEntriesOfType(AbiEvent.class);
     }
 
+    @NonNull
     public List<AbiError> getErrors() {
         return getEntriesOfType(AbiError.class);
     }
 
-    private <T extends AbiEntry> List<T> getEntriesOfType(Class<T> type) {
+    @NonNull
+    private <T extends AbiEntry> List<T> getEntriesOfType(@NonNull final Class<T> type) {
+        Objects.requireNonNull(type, "type must not be null");
         return entries.stream()
                 .filter(type::isInstance)
                 .map(type::cast)

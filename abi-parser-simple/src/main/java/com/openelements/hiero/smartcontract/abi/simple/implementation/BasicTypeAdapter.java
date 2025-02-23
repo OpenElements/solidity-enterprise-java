@@ -21,31 +21,30 @@ public abstract class BasicTypeAdapter<T> extends TypeAdapter<T> {
 
     private final TypeAdapter<JsonArray> arrayTypeAdapter;
 
-
-    public BasicTypeAdapter(final Gson gson) {
+    public BasicTypeAdapter(@NonNull final Gson gson) {
         this.gson = Objects.requireNonNull(gson, "gson");
         objectTypeAdapter = gson.getAdapter(JsonObject.class);
         arrayTypeAdapter = gson.getAdapter(JsonArray.class);
     }
 
-    protected JsonObject readObject(JsonReader in) throws IOException {
+    protected JsonObject readObject(@NonNull final JsonReader in) throws IOException {
         return objectTypeAdapter.read(in);
     }
 
-    protected JsonArray readArray(JsonReader in) throws IOException {
+    protected JsonArray readArray(@NonNull final JsonReader in) throws IOException {
         return arrayTypeAdapter.read(in);
     }
 
-
-    protected <T> T fromJson(JsonElement json, Class<T> classOfT) throws JsonSyntaxException {
+    protected <T> T fromJson(@NonNull final JsonElement json, @NonNull final Class<T> classOfT) throws JsonSyntaxException {
         return gson.fromJson(json, classOfT);
     }
 
-
+    @NonNull
     protected Gson getGson() {
         return gson;
     }
 
+    @NonNull
     protected TypeAdapter<JsonObject> getObjectTypeAdapter() {
         return objectTypeAdapter;
     }
@@ -55,6 +54,7 @@ public abstract class BasicTypeAdapter<T> extends TypeAdapter<T> {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    @NonNull
     protected JsonArray getArray(@NonNull final JsonObject jsonObject, @NonNull final String key) {
         Objects.requireNonNull(jsonObject, "jsonObject");
         Objects.requireNonNull(key, "key");
@@ -69,6 +69,7 @@ public abstract class BasicTypeAdapter<T> extends TypeAdapter<T> {
         return new JsonArray();
     }
 
+    @NonNull
     protected Optional<String> getStringValue(@NonNull final JsonObject jsonObject, @NonNull final String key) {
         Objects.requireNonNull(jsonObject, "jsonObject");
         Objects.requireNonNull(key, "key");
@@ -82,6 +83,7 @@ public abstract class BasicTypeAdapter<T> extends TypeAdapter<T> {
         return Optional.empty();
     }
 
+    @NonNull
     protected Optional<Boolean> getBooleanValue(@NonNull final JsonObject jsonObject, @NonNull final String key) {
         Objects.requireNonNull(jsonObject, "jsonObject");
         Objects.requireNonNull(key, "key");

@@ -7,11 +7,14 @@ import com.google.gson.reflect.TypeToken;
 import com.openelements.hiero.smartcontract.abi.model.AbiEntry;
 import com.openelements.hiero.smartcontract.abi.model.AbiModel;
 import com.openelements.hiero.smartcontract.abi.model.AbiParameter;
+import java.util.Objects;
+import org.jspecify.annotations.NonNull;
 
 public class AbiTypeAdapterFactory implements TypeAdapterFactory {
 
     @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+    public <T> TypeAdapter<T> create(@NonNull final Gson gson, @NonNull final TypeToken<T> type) {
+        Objects.requireNonNull(type, "type must not be null");
         if (type.getRawType().equals(AbiModel.class)) {
             return (TypeAdapter<T>) new AbiModelTypeAdapter(gson);
         }

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.jspecify.annotations.NonNull;
 
 public class AbiEntryTypeAdapter extends BasicTypeAdapter<AbiEntry> {
 
@@ -20,7 +21,7 @@ public class AbiEntryTypeAdapter extends BasicTypeAdapter<AbiEntry> {
     }
 
     @Override
-    public AbiEntry read(JsonReader in) throws IOException {
+    public AbiEntry read(@NonNull final JsonReader in) throws IOException {
         final JsonObject abiEntryObject = readObject(in);
         final AbiEntryType type = getStringValue(abiEntryObject, "type")
                 .map(AbiEntryType::of)

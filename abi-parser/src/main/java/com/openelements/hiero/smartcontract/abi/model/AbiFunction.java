@@ -36,6 +36,5 @@ public record AbiFunction(@NonNull AbiEntryType type, @Nullable String name, @No
         Objects.requireNonNull(inputs, "inputs");
         Objects.requireNonNull(outputs, "outputs");
         Objects.requireNonNull(stateMutability, "stateMutability");
-
     }
 }
