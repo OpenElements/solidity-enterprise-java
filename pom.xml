@@ -6,7 +6,7 @@
 
   <groupId>com.open-elements.solidity</groupId>
   <artifactId>solidity-enterprise</artifactId>
-  <version>0.2.0</version>
+  <version>0.3.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Solidity Enterprise for Java</name>
