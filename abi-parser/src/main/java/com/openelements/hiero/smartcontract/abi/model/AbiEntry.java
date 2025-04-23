@@ -1,12 +1,28 @@
 package com.openelements.hiero.smartcontract.abi.model;
 
 import java.util.List;
+import org.jspecify.annotations.NonNull;
 
+/**
+ * Represents an entry in the ABI (Application Binary Interface) of a smart contract.
+ */
 public sealed interface AbiEntry permits AbiEvent, AbiError, AbiFunction {
 
-    AbiEntryType type();
+    /**
+     * Returns the type of the ABI entry.
+     * @return the type of the ABI entry
+     */
+    @NonNull AbiEntryType type();
 
-    String name();
+    /**
+     * Returns the name of the ABI entry.
+     * @return the name of the ABI entry
+     */
+    @NonNull String name();
 
-    List<AbiParameter> inputs();
+    /**
+     * Returns the state mutability of the ABI entry.
+     * @return the state mutability of the ABI entry
+     */
+    @NonNull List<AbiParameter> inputs();
 }
