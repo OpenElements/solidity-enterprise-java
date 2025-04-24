@@ -78,7 +78,7 @@ public record AbiEvent(@NonNull String name, @NonNull List<AbiParameter> inputs,
     }
 
     /**
-     * Returns the Keccak-256 hash of the event signature as a hexadecimal string in the format "0x<hash>".
+     * Returns the Keccak-256 hash of the event signature as a hexadecimal string in the format {@code 0x<hash>}.
      * @return the Keccak-256 hash of the event signature as a hexadecimal string
      */
     @NonNull
