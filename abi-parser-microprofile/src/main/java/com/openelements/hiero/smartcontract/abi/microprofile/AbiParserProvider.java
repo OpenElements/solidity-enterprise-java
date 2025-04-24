@@ -5,6 +5,9 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 import org.jspecify.annotations.NonNull;
 
+/**
+ * CDI provider for the {@link AbiParser} implementation using MicroProfile JSON-P.
+ */
 @ApplicationScoped
 public class AbiParserProvider {
 

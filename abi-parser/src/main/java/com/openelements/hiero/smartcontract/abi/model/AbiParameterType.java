@@ -1,5 +1,10 @@
 package com.openelements.hiero.smartcontract.abi.model;
 
+import org.jspecify.annotations.NonNull;
+
+/**
+ * Represents the possible types of an ABI parameter (see {@link AbiParameter}).
+ */
 public enum AbiParameterType {
     ADDRESS,
     STRING,
@@ -9,7 +14,13 @@ public enum AbiParameterType {
     UINT,
     TUPLE;
 
-    public static AbiParameterType of(final String name) {
+    /**
+     * Returns the ABI parameter type corresponding to the given name.
+     * @param name the name of the ABI parameter type
+     * @return the corresponding ABI parameter type
+     */
+    @NonNull
+    public static AbiParameterType of(@NonNull final String name) {
         return switch (name) {
             case "address" -> ADDRESS;
             case "string" -> STRING;
@@ -22,6 +33,11 @@ public enum AbiParameterType {
         };
     }
 
+    /**
+     * Returns the canonical type of the ABI parameter.
+     * @return the canonical type of the ABI parameter
+     */
+    @NonNull
     public String getCanonicalType() {
         return switch (this) {
             case ADDRESS -> "address";
@@ -34,6 +50,10 @@ public enum AbiParameterType {
         };
     }
 
+    /**
+     * Checks if the ABI parameter type is dynamic.
+     * @return true if the ABI parameter type is dynamic, false otherwise
+     */
     public boolean isDynamic() {
         return switch (this) {
             case STRING, BYTE32 -> true;
@@ -41,6 +61,10 @@ public enum AbiParameterType {
         };
     }
 
+    /**
+     * Returns the fixed size of the ABI parameter type in bytes or throws an {@link IllegalStateException} if the type is dynamic.
+     * @return the fixed size of the ABI parameter type in bytes
+     */
     public int getFixedSize() {
         return switch (this) {
             case ADDRESS -> 20;

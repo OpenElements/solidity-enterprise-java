@@ -10,6 +10,9 @@ import com.openelements.hiero.smartcontract.abi.model.AbiParameter;
 import java.util.Objects;
 import org.jspecify.annotations.NonNull;
 
+/**
+ * Gson adapter factory for the {@link AbiModel}, {@link AbiEntry}, and {@link AbiParameter} types.
+ */
 public class AbiTypeAdapterFactory implements TypeAdapterFactory {
 
     @Override

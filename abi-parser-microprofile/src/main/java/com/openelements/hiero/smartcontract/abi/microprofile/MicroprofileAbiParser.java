@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.jspecify.annotations.NonNull;
 
+/**
+ * MicroProfile JSON-P implementation of the {@link AbiParser} interface.
+ */
 public class MicroprofileAbiParser implements AbiParser {
 
     @Override

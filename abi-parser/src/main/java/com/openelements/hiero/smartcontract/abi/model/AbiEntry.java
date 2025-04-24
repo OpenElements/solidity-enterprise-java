@@ -5,6 +5,7 @@ import org.jspecify.annotations.NonNull;
 
 /**
  * Represents an entry in the ABI (Application Binary Interface) of a smart contract.
+ * More information can be found at <a href="https://docs.soliditylang.org/en/latest/abi-spec.html">Solidity ABI Specification</a>.
  */
 public sealed interface AbiEntry permits AbiEvent, AbiError, AbiFunction {
 

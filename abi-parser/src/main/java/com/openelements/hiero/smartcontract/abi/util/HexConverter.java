@@ -4,10 +4,21 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import org.jspecify.annotations.NonNull;
 
+/**
+ * Utility class for converting between byte arrays and hexadecimal strings.
+ */
 public class HexConverter {
 
+    /**
+     * Hexadecimal character array used for conversion.
+     */
     private static final byte[] HEX_ARRAY = "0123456789ABCDEF".getBytes(StandardCharsets.US_ASCII);
 
+    /**
+     * Converts a byte array to a hexadecimal string.
+     * @param bytes the byte array to convert
+     * @return the hexadecimal string representation of the byte array
+     */
     @NonNull
     public static String bytesToHex(@NonNull final byte[] bytes) {
         //see https://stackoverflow.com/questions/9655181/java-convert-a-byte-array-to-a-hex-string
@@ -21,6 +32,11 @@ public class HexConverter {
         return new String(hexChars, StandardCharsets.UTF_8).toLowerCase();
     }
 
+    /**
+     * Converts a hexadecimal string to a byte array.
+     * @param hex the hexadecimal string to convert
+     * @return the byte array representation of the hexadecimal string
+     */
     @NonNull
     public static byte[] hexToBytes(@NonNull final String hex) {
         Objects.requireNonNull(hex, "hex must not be null");

@@ -11,6 +11,9 @@ import java.util.Collections;
 import java.util.List;
 import org.jspecify.annotations.NonNull;
 
+/**
+ * Gson adapter for the {@link AbiModel} type.
+ */
 public class AbiModelTypeAdapter extends BasicTypeAdapter<AbiModel> {
 
     public AbiModelTypeAdapter(@NonNull Gson gson) {

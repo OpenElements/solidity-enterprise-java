@@ -13,6 +13,10 @@ import java.util.Objects;
 import java.util.Optional;
 import org.jspecify.annotations.NonNull;
 
+/**
+ * Abstract class for Gson adapters that read and write JSON objects.
+ * @param <T> the type of the object to be read or written
+ */
 public abstract class BasicTypeAdapter<T> extends TypeAdapter<T> {
 
     private final Gson gson;
